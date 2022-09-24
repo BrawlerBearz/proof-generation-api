@@ -4,6 +4,8 @@ import { initMatic, convert } from '../helpers/maticClient'
 import { InfoError } from '../helpers/errorHelper'
 import logger from '../config/logger'
 
+console.log(config.app)
+
 const mainnetRPCLength = config.app.maticRPC.length // total mainnet rpcs
 const mainnetMaxRetries = 2 * mainnetRPCLength // max mainnet retries
 const testnetRPCLength = config.app.mumbaiRPC.length // total testnet rpcs
