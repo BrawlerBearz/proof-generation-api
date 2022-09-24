@@ -1,29 +1,16 @@
-// global variables defined in config.yml
 
-import configYaml from 'config-yaml'
-import path from 'path'
+require('dotenv').config()
 
-// load config env
-const root = path.normalize(`${__dirname}/../..`)
+const debug = process.env.NODE_ENV !== 'production'
 
-const fileName = '/config.yml'
-
-const configFile = `${root}${fileName}`
-
-const config = configYaml(configFile)
-
-const debug = config.debug !== 'production'
 export default {
   app: {
-    name: config.app.name || 'Proof Generation API',
-    port: parseInt(config.app.port || 5000, 10),
-    maticRPC: config.app.maticRPCs,
-    ethereumRPC: config.app.ethereumRPCs,
-    goerliRPC: config.app.goerliRPC,
-    mumbaiRPC: config.app.mumbaiRPC
+    name: 'Proof Generation API',
+    port: parseInt(process.env.port || 5000, 10),
+    maticRPC: [process.env.MATIC_PROVIDER_URL],
+    ethereumRPC: [process.env.ETHEREUM_PROVIDER_URL]
   },
   debug: debug,
-  networks: config.networks,
   mainnetRpcIndex: 0,
   testnetRpcIndex: 0
 }
