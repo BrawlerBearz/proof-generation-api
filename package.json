@@ -33,6 +33,7 @@
     "express": "^4.17.1",
     "express-list-endpoints": "^6.0.0",
     "helmet": "^4.6.0",
+    "pm2": "^5.2.0",
     "pre-commit": "^1.2.2",
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.5.0",
