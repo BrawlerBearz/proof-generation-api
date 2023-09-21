@@ -1,6 +1,15 @@
 // winston logger for logging errors and info level logs into error.log and combined.log
 
 import { createLogger, format, transports } from 'winston'
+import config from '../config/globals'
+import Sentry from 'winston-transport-sentry-node'
+
+const options = {
+  sentry: {
+    dsn: config.sentry.dsn
+  },
+  level: 'error'
+}
 
 const logFormat = format.combine(
   format.colorize({
@@ -27,12 +36,7 @@ const logger = createLogger({
   ),
   defaultMeta: { service: 'user-service' },
   transports: [
-    //
-    // - Write all logs with level `error` and below to `error.log`
-    // - Write all logs with level `info` and below to `combined.log`
-    //
-    new transports.File({ filename: 'log/error.log', level: 'error' }),
-    new transports.File({ filename: 'log/combined.log' })
+    new Sentry(options)
   ]
 })
 
