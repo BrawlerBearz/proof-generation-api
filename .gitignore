@@ -8,9 +8,8 @@ log
 *.env
 pids/
 *.rdb
-<<<<<<< .merge_file_a38248
-=======
+
 config.yml
 report.*.*.*
 .github/workflows/
->>>>>>> .merge_file_a34932
+

@@ -1,18 +1,3 @@
-<<<<<<< .merge_file_a36824
-
-require('dotenv').config()
-
-const debug = process.env.NODE_ENV !== 'production'
-
-export default {
-  app: {
-    name: 'Proof Generation API',
-    port: parseInt(process.env.PORT || 5000, 10),
-    maticRPC: [process.env.MATIC_PROVIDER_URL],
-    ethereumRPC: [process.env.ETHEREUM_PROVIDER_URL],
-    mumbaiRPC: [process.env.MUMBAI_PROVIDER_URL],
-    goerliRPC: [process.env.GOERLI_PROVIDER_URL]
-=======
 import { config } from 'dotenv'
 
 config()
@@ -28,7 +13,6 @@ export default {
     mumbaiRPC: JSON.parse(process.env.MUMBAI_RPC),
     zkEVMMainnetURL: process.env.ZKEVM_MAINNET_URL,
     zkEVMTestnetURL: process.env.ZKEVM_TESTNET_URL
->>>>>>> .merge_file_a39496
   },
   debug: debug,
   mainnetRpcIndex: 0,
